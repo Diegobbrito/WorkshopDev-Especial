@@ -7,6 +7,10 @@ body{
     margin: 0;
 }
 
+body.hideScroll{
+    overflow: hidden;
+}
+
 #container{
     width: 90%;
     max-width: 980px; 
@@ -14,8 +18,6 @@ body{
  
     display: flex;
 }
-
-
 
 p, .description{
     font-size: 16px;
@@ -25,8 +27,9 @@ p, .description{
 
 #intro{
     width: 300px;
-    margin-right: 20px;
+    margin-right: 64px;
 }
+
 main{
     margin: 32px 0;
 }
@@ -42,12 +45,14 @@ button{
     color: #ff5e84;
 
     border: none;
+
     font-size: 14px;
     font-weight: bold;
     line-height: 18px;
     letter-spacing: 0.2px;
 
     cursor: pointer;
+
     outline: none;
 }
 button:hover{
@@ -55,17 +60,27 @@ button:hover{
 }
 
 
-button.fat{
-    color: white;
+.button {
     background: #ff5e84;
+    color: white;
 
     width: 150px;
     height: 40px;
-    border-radius: 6px;
-    box-shadow: 10px 8px 16px #ff5e8432;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0px 8px 16px #ff5e8432;
 }
 
-button.fat:hover{
+.button:hover {
+    background-color: #0984e3;
     text-decoration: none;
 }
 
@@ -84,22 +99,24 @@ footer{
     font-weight: 400;
     line-height: 18px;
     letter-spacing: 0.2px;
-    color #777;
+    color: #777;
 }
 
-footer a{
+footer a {
     opacity: 0.6;
+}
+
+a {
+    color: #ff5e84;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 a:hover{
     text-decoration: underline;
 }
 
-a{
-    color: #ff5e84;
-    font-weight: bold;
-    text-decoration: none;
-}
+
 /* class é representado por .  */
 
 .idea{
@@ -139,17 +156,23 @@ a{
 
     position: absolute;
     top: 0;
-    width: 100vw;
-    height: 100vh;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
     display: flex;
-    align-items: center;
+    justify-content: center;
 
     transition: 400ms;
 }
 
+#modal.addScroll{
+    overflow: auto;
+}
+
 #modal .content{
-    margin-top: 128px;
+    margin-top: 5%;
+
     color: white;
 }
 
@@ -161,7 +184,8 @@ a{
 #modal form{
     width: 80%;
     max-width: 800px;
-    margin: 0 auto;
+
+    margin: 0 auto 5%;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -214,26 +238,33 @@ form a{
 
     align-self: end;
 
-    transition: 500ms;
+    transition: 400ms;
 }
 
 form a:hover{
     background: white;
     color: #ff5e84;
+
     text-decoration: none;
 }
 
 form button{
     background: white;
+
     width: 150px;
     height: 40px;
+
     border-radius: 6px;
+
     cursor: pointer;
 
     margin-top: 32px;
 
     grid-column: 2;
+
     justify-self: end;
+
+    transition: 400ms;
 }
 
 form button:hover{
@@ -243,7 +274,88 @@ form button:hover{
 }
 
 #modal.hide{
-
     opacity: 0;
     visibility: hidden;
+}
+
+/* Ideia HTML */
+
+#page-ideas #container{
+    display: block;
+}
+
+#page-ideas header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#page-ideas nav{
+    display: flex;
+    align-items: center;
+}
+
+#page-ideas nav li{
+    list-style-type: none;
+    margin-right: 16px;
+}
+
+#page-ideas nav li a{
+    color: #25282B;
+}
+
+#page-ideas nav li:last-child{
+    margin: 0;
+}
+
+#page-ideas nav li:last-child a{
+    font-size: 14px;
+    font-weight: bold;
+
+    width: 150px;
+    height: 40px;
+
+    background-color: #ff5e84;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+#page-ideas nav li:last-child a:hover{
+    background-color: #0984e3;  
+    text-decoration: none;
+}
+
+section#title{
+    text-align: center;
+}
+
+section#title p{
+    opacity: 0.7;
+    margin: 0;
+}
+section#title h1{
+    margin: 0;
+
+    font-size: 28px;
+}
+
+section#ideas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+section#ideas .idea{
+    margin: 0;
+}
+
+section#title,
+section#ideas,
+footer{
+    margin-top: 64px;
 }
